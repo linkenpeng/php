@@ -16,4 +16,24 @@ $redis = new Predis\Client();
 
 $redis->set('library', 'predis');
 $retval = $redis->get('library');
-echo $retval;
+echo $retval.PHP_EOL;
+
+echo $redis->setex('key', 3600, 'value');
+echo $redis->get('key').PHP_EOL;
+
+echo $redis->setnx('key', 'value').PHP_EOL;
+echo $redis->setnx('key', 'value').PHP_EOL;
+
+//hash 
+$redis->hSet('h', 'key1', 'hello');
+echo $redis->hGet('h', 'key1').PHP_EOL;
+echo $redis->hLen('h').PHP_EOL;
+
+
+
+
+
+
+
+
+
